@@ -14,14 +14,16 @@ void menu() {
         printf("Escolha: ");
         scanf("%d", &opcao);
 
-        switch (opcao) {
+       switch (opcao) {
             case 1: cadastrarConta(); break;
             case 2: realizarSaque(); break;
-            case 3: gerarRelatorio(); break;
-            case 4: salvarArquivo(); break;
+            case 3: depositar(); break;
+            case 4: verSaldo(); break;
+            case 5: gerarRelatorio(); break;
+            case 6: salvarArquivo(); break;
             default: printf("Opção inválida!\n");
         }
-    } while (opcao != 4);
+    } while (opcao != 6);
 }
 
 int main() {
