@@ -141,7 +141,7 @@ void gerarRelatorio() {
 }
 
 void salvarArquivo() {
-    FILE *f = fopen("dados/contas.txt", "w");
+    FILE *f = fopen("contas.txt", "w");
     if (!f) {
         printf("Erro ao salvar.\n");
         return;
@@ -153,12 +153,10 @@ void salvarArquivo() {
 
     Conta *c = inicio;
     while (c != NULL) {
-        // Dados da conta formatados para leitura humana
         fprintf(f, "%-10d%-10d%-20s%-16s%-16s%-10.2f%-8d%-12.2f\n",
                 c->numero, c->agencia, c->nome, c->cpf, c->telefone,
                 c->saldo, c->total_saques, c->total_sacado);
 
-        // Saques (visual)
         fprintf(f, "Saques: ");
         Saque *s = c->saques;
         while (s != NULL) {
@@ -170,10 +168,10 @@ void salvarArquivo() {
     }
 
     fclose(f);
-    printf("Arquivo salvo com sucesso em dados/contas.txt!\n");
+    printf("Arquivo salvo com sucesso em contas.txt!\n");
 
     // Também salva em formato técnico reutilizável
-    FILE *fr = fopen("dados/contas_raw.txt", "w");
+    FILE *fr = fopen("contas_raw.txt", "w");
     if (!fr) {
         printf("Erro ao salvar o arquivo técnico.\n");
         return;
@@ -195,11 +193,11 @@ void salvarArquivo() {
     }
 
     fclose(fr);
-    printf("Arquivo técnico salvo em dados/contas_raw.txt!\n");
+    printf("Arquivo técnico salvo em contas_raw.txt!\n");
 }
 
 void carregarArquivo() {
-    FILE *f = fopen("dados/contas_raw.txt", "r");
+    FILE *f = fopen("contas_raw.txt", "r");
     if (!f) {
         printf("Arquivo técnico não encontrado.\n");
         return;

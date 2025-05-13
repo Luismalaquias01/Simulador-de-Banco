@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "banco.c"
 #include "fila.c"
 #include "pilha.c"
@@ -91,12 +89,7 @@ void menu() {
             case 5:
                 gerarRelatorio(); break;
             case 6:
-                #include <sys/stat.h>
-#include <sys/types.h>
-
-// cria pasta se necessário
-mkdir("dados", 0777);
-salvarArquivo();
+                salvarArquivo();
                 liberarContas();
                 liberarPilha(&pilha);
                 break;
