@@ -6,7 +6,7 @@
 extern Conta *inicio;
 
 void ordenarContas(CriterioOrdenacao criterio) {
-    // Contar número de contas
+    // numero de contas
     int n = 0;
     Conta *ptr = inicio;
     while (ptr) {
@@ -18,7 +18,7 @@ void ordenarContas(CriterioOrdenacao criterio) {
         return;
     }
 
-    // Criar vetor auxiliar de ponteiros
+    // criação de um vetor auxiliar de ponteiros
     Conta **lista = (Conta **)malloc(n * sizeof(Conta *));
     if (!lista) return;
 
@@ -28,7 +28,7 @@ void ordenarContas(CriterioOrdenacao criterio) {
         ptr = ptr->prox;
     }
 
-    // Ordenar com bubble sort
+    // por bubble sort
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
             int precisaTrocar = 0;
@@ -46,7 +46,6 @@ void ordenarContas(CriterioOrdenacao criterio) {
         }
     }
 
-    // Exibir resultado
     printf("\n==== CONTAS ORDENADAS ====");
     for (int i = 0; i < n; i++) {
         printf("\nConta: %d | Agência: %d\n", lista[i]->numero, lista[i]->agencia);

@@ -45,21 +45,21 @@ void cadastrarConta() {
 
     nova->prox = inicio;
     inicio = nova;
-    printf("Conta cadastrada com sucesso!\n");
+    printf("conta cadastrada com sucesso!\n");
 }
 
 void realizarSaque() {
     int numero, agencia;
     float valor;
 
-    printf("Número da conta: ");
+    printf("número da conta: ");
     if (scanf("%d", &numero) != 1) return;
     printf("Número da agência: ");
     if (scanf("%d", &agencia) != 1) return;
 
     Conta *conta = buscarConta(numero, agencia);
     if (!conta) {
-        printf("Conta não encontrada!\n");
+        printf("conta não encontrada!\n");
         return;
     }
 
@@ -81,8 +81,8 @@ void realizarSaque() {
     conta->total_saques++;
     conta->total_sacado += valor;
 
-    printf("Saque realizado com sucesso!");
-    printf("Saldo restante: R$ %.2f", conta->saldo);
+    printf("saque realizado com sucesso!");
+    printf("saldo restante: R$ %.2f", conta->saldo);
 }
 
 void depositar() {
@@ -147,7 +147,8 @@ void salvarArquivo() {
         return;
     }
 
-    // Cabeçalho da tabela (visual)
+    // Cabeçalho da tabela
+    //fprintf usa-se para escrever em arquivos
     fprintf(f, "Conta     Agencia   Nome                CPF             Telefone        Saldo     Saques  TotalSacado\n");
     fprintf(f, "------------------------------------------------------------------------------------------------------\n");
 
@@ -170,7 +171,7 @@ void salvarArquivo() {
     fclose(f);
     printf("Arquivo salvo com sucesso em contas.txt!\n");
 
-    // Também salva em formato técnico reutilizável
+    // agr vai pro formato pra reutilizar no código quando for abrir ele novamente e executar
     FILE *fr = fopen("contas_raw.txt", "w");
     if (!fr) {
         printf("Erro ao salvar o arquivo técnico.\n");
@@ -193,7 +194,7 @@ void salvarArquivo() {
     }
 
     fclose(fr);
-    printf("Arquivo técnico salvo em contas_raw.txt!\n");
+    printf("Arquivo técnico salvo em contas_raw.txt\n");
 }
 
 void carregarArquivo() {

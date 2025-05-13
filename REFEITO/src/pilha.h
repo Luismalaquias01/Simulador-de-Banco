@@ -1,13 +1,11 @@
 #ifndef PILHA_H
 #define PILHA_H
 
-// Tipo de operação realizada
 typedef enum {
     OPERACAO_SAQUE,
     OPERACAO_DEPOSITO
 } TipoOperacao;
 
-// Registro de uma operação na pilha
 typedef struct Operacao {
     TipoOperacao tipo;
     int numeroConta;
@@ -16,7 +14,6 @@ typedef struct Operacao {
     struct Operacao *prox;
 } Operacao;
 
-// Pilha de operações
 typedef struct {
     Operacao *topo;
 } Pilha;
